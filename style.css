@@ -1,0 +1,166 @@
+:root {
+    --main-bg-color: #eff5fe;
+    --border-color: #0288d147;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--main-bg-color);
+
+}
+
+.main-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.drop-zone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.icon-container {
+    width: 75px;
+    height: 100px;
+    /* position: relative; */
+}
+
+.drop-zone,
+.share-zone {
+    /* width: 500px; */
+    min-height: 350px;
+    border: 2px dashed var(--border-color);
+    margin: 30px;
+    border-radius: 10px;
+}
+
+.share-zone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload-container,
+.share-container {
+    width: 500px;
+    height: 450px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 25px 25px 0 #00000047;
+    margin: 10px;
+}
+
+.icon-container {
+    position: relative;
+    /* transition-property: transform;
+    transition-duration: 1s;
+    transition-delay: 100ms;
+    padding-bottom: 5px; */
+}
+
+/* .icon-container:hover {
+    transform: scale(1.1);
+} */
+
+.icon-container img {
+    width: 75px;
+    position: absolute;
+}
+
+.upload_animation_class {
+    animation-name: upload_animation;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction:alternate-reverse;
+}
+
+@keyframes upload_animation {
+    0% {
+        transform: scale(0.8);
+        filter: grayscale(80%);
+
+
+    }
+
+    100% {
+        transform: scale(1.2);
+        filter: none;
+    }
+}
+
+
+
+
+
+
+
+/* ++++++++++++++++++++++ */
+
+form {
+    max-width: 400px;
+    /* Adjust the maximum width as needed */
+    margin: 0 auto;
+    /* Center the form horizontally */
+    padding: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="email"],
+input[type="text"] {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border: 2px solid #00b8ff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all;
+    transition-duration: 1s;
+    transition-delay: 10ms;
+}
+
+button[type="submit"]:hover {
+    border: 2px solid #00b8ff;
+    color: #00b8ff;
+    background-color: white;
+}
+
+#copyBtn {
+    border: 1px solid black;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    position: relative;
+    top: -47px;
+    border-right: none;
+    left: 183px;
+    cursor: pointer;
+    padding: 5px 7px;
+}

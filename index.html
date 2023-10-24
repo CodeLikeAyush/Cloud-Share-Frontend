@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fileShare</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main-container">
+        <h2 style="position: fixed;rotate: -90deg;color: dodgerblue;margin: 0;left: -27px;">CLOUD-SHARE</h2>
+        <section class="upload-container">
+            <h2 style="margin: auto;color: dodgerblue;position: relative;top: 3%;left: 45%;margin: 4px;">UPLOAD</h2>
+
+            <div class="drop-zone">
+                <div class="icon-container">
+                    <img src="./images/upload-file.svg" alt="image_icon" class="icon  upload_icon" draggable="false">
+                </div>
+                <form id="fileUploadForm">
+                    <input type="file" id="fileInput" required>
+                    <button type="submit" id="uploadBtn">Upload</button>
+                </form>
+
+            </div>
+        </section>
+
+        <section class="share-container">
+            <h1 style="margin: auto;color: dodgerblue;position: relative;top: 3%;left: 45%;margin: 4px;">SHARE</h1>
+
+            <div class="share-zone">
+                <form id="fileShareForm" action="">
+                    <label for="sender_email">Your Email</label>
+                    <input type="email" name="sender_email" id="sender_email" placeholder="Your Email" required>
+
+                    <label for="receiver_email">Send to</label>
+                    <input type="email" name="receiver_email" id="receiver_email" placeholder="Receiver's Email"
+                        required>
+
+                    <div class="copy-field">
+                        <!-- <label for="text_to_copy">Text to Copy</label> -->
+                        <input type="text" name="text_to_copy" id="text_to_copy"
+                            style="background-color: grey;border: 1px;" required>
+                        <button type="button" id="copyBtn">Copy</button>
+                    </div>
+                    <button type="submit" id="shareBtn">Send</button>
+
+                </form>
+
+            </div>
+        </section>
+    </div>
+
+
+    <script src="./script.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const copyButton = document.getElementById('copyBtn');
+            const textToCopy = document.getElementById('text_to_copy');
+
+            copyButton.addEventListener('click', function () {
+                textToCopy.select(); // Select the text
+                try {
+                    if (textToCopy.value === "") {
+                        alert('Nothing to share. First upload file');
+                        return;
+                    }
+                    const successful = document.execCommand('copy'); // Attempt to copy
+                    if (successful) {
+                        alert(`Link copied: ${textToCopy.value}`);
+                    } else {
+                        alert('Copy to clipboard failed. You can manually copy the text.');
+                    }
+                } catch (err) {
+                    alert('An error occurred while copying. You can manually copy the text.');
+                }
+            });
+        });
+    </script>
+
+
+
+</body>
+
+</html>
